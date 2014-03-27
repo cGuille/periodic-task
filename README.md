@@ -34,7 +34,40 @@ var PeriodicTask = require('./periodic-task');// You may have to adjust the path
 
 ####PeriodicTask.stop()
 *Cancel the scheduled executions, if necessary.*
- 
-# Sample usage
 
-See the [demo file](https://github.com/cGuille/periodic-task/blob/master/periodic-task-demo.html).
+# Sample usage
+Try running the following code after including/requiring PeriodicTask:
+```js
+'use strict';
+
+var levels = ['debug', 'notice', 'warning', 'error'];
+var DEFAULT_LEVEL = levels[0];
+
+function log(message, level) {
+    if (!level) {
+        level = DEFAULT_LEVEL;
+    }
+    if (levels.indexOf(level) === -1) {
+        throw new Error('Invalid log level: `' + level + '`');
+    }
+    console.log('[' + level + '] ' + message);
+}
+
+function t() {
+    return +new Date();
+}
+var t0;
+var delay = 2000;
+var log_count = 0;
+
+var task = new PeriodicTask(delay, function () {
+    log_count += 1;
+    log('#' + log_count + ' ~' + ((t() - t0) / 1000) + 's');
+});
+
+console.log('The demo task is available:', task);
+console.log('It will be started automatically.')
+console.log('Try running `task.stop();` or `task.run();`');
+
+t0 = t(); task.run();
+```

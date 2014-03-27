@@ -1,0 +1,26 @@
+{
+  "name": "periodic-task",
+  "version": "0.0.0",
+  "readmeFilename": "README.md",
+  "description": "A JavaScript module that defines a PeriodicTask constructor, easing the way you use setTimeout to run periodic tasks.",
+  "main": "periodic-task.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cGuille/periodic-task.git"
+  },
+  "keywords": [
+    "javascript",
+    "setTimeout",
+    "setInterval",
+    "task scheduler",
+    "periodic"
+  ],
+  "author": "Guillaume Charmetant <cguille.dev@gmail.com> (https://github.com/cGuille)",
+  "license": "Unlicense (see http://unlicense.org/)",
+  "bugs": {
+    "url": "https://github.com/cGuille/periodic-task/issues"
+  }
+}

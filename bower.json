@@ -1,7 +1,7 @@
 {
   "name": "periodic-task",
   "main": "periodic-task.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/cGuille/periodic-task",
   "authors": [
     "Guillaume Ch. <cguille.dev@gmail.com>"
@@ -18,10 +18,11 @@
   "ignore": [
     "README.md",
     "LICENSE",
-    "bower.json",
     "**/.*",
     "node_modules",
+    "package.json",
     "bower_components",
+    "bower.json",
     "test",
     "tests"
   ]

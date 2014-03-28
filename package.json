@@ -1,6 +1,6 @@
 {
   "name": "periodic-task",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "readmeFilename": "README.md",
   "description": "A JavaScript module that defines a PeriodicTask constructor, easing the way you use setTimeout to run periodic tasks.",
   "main": "periodic-task.js",

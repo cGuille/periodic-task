@@ -3,21 +3,30 @@ periodic-task
 
 A JavaScript module that defines a PeriodicTask constructor, easing the way you use setTimeout to run periodic tasks.
 
-# How to use it
-
+# Installation
 ### In the browser
-Just include the `periodic-task.js` script in your HTML file to make the `PeriodicTask` contructor available.
+With bower:
+```bash
+bower install periodic-task
+```
+
+Then you should include the script:
 ```html
-<script src="path/to/periodic-task.js"></script>
+<script src="bower_components/periodic-task/periodic-task.js"></script>
 ```
 
 ### In NodeJS
-It is not bundled as an npm package yet, so just `require('./periodic-task')`:
-```js
-var PeriodicTask = require('./periodic-task');// You may have to adjust the path to the module
+With npm:
+```bash
+npm install periodic-task
 ```
 
-### Available functions
+Then you should require the module:
+```js
+var PeriodicTask = require('periodic-task');
+```
+
+# API documentation
 
 #### PeriodicTask(delay, fn, context, args…)
 *The constructor of a periodic task.*

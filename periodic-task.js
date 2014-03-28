@@ -10,12 +10,10 @@
      * @param {Function} task the function to be executed periodically
      * @param {mixed} context the context to be bound to the task
      * @param {mixed} args… pass as many arguments as you want to give to the task
-     *
-     * @return {PeriodicTask} a task that can be executed periodically
      */
     function PeriodicTask() {
         if (arguments.length < 2) {
-            throw new Error('PeriodicTask constructor expect at least two arguments');
+            throw new Error('PeriodicTask constructor expects at least two arguments');
         }
         var self = this;
         var args = Array.prototype.slice.call(arguments);

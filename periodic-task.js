@@ -17,14 +17,14 @@
         }
         var self = this;
         var args = Array.prototype.slice.call(arguments);
-        var duration = args.shift();
+        var delay = args.shift();
         var fn = args.shift();
         var context = args.shift();
 
         this._task = function () {
             fn.apply(context, args);
         };
-        this.duration = duration.valueOf();
+        this._delay = delay.valueOf();
         this._timer = null;
     }
 
@@ -58,6 +58,19 @@
     };
 
     /**
+     * Get or set the delay between to task executions
+     *
+     * @param  {number|object} newDelay the minimum delay between two task executions - if an object is given, its valueOf() method must return a number (evaluated as milliseconds)
+     * @return {number} the delay in milliseconds
+     */
+    PeriodicTask.prototype.delay = function (newDelay) {
+        if (newDelay) {
+            this._delay = newDelay.valueOf();
+        }
+        return this._delay;
+    };
+
+    /**
      * PRIVATE INTERNAL ROUTINE
      *
      * Schedule the task to be executed at the next occurence.
@@ -68,7 +81,7 @@
         task._timer = setTimeout(function () {
             task._task();
             schedule(task);
-        }, task.duration);
+        }, task._delay);
     }
 
     // Exposing the module:

@@ -28,12 +28,12 @@ var PeriodicTask = require('periodic-task');
 
 # API documentation
 
-#### PeriodicTask(delay, fn, context, args…)
+#### PeriodicTask(delay, fn, [context], [args…])
 *The constructor of a periodic task.*
  * **delay** (number|object): the time in milliseconds between to periodic calls (you may also pass in a [momentjs Duration object](http://momentjs.com/docs/#/durations/)) ;
- * fn (Function): the task to be executed periodically ;
- * context (mixed) [optionnal]: the value to be bound as `this` to the task's function when running it ;
- * args (mixed) [optionnals]: any additional arguments passed will be passed to the task when running it.
+ * **fn** (Function): the task to be executed periodically ;
+ * **context** (mixed) [optionnal]: the value to be bound as `this` to the task's function when running it ;
+ * **args** (mixed) [optionnals]: any additional arguments passed will be passed to the task when running it.
 
 #### PeriodicTask.run()
 *Run the task immediately, and then schedule it to be executed periodically.*
@@ -41,8 +41,16 @@ var PeriodicTask = require('periodic-task');
 #### PeriodicTask.runOnce()
 *Run the task just once. Does not schedule it to be executed later. If an execution was scheduled, it will be cancelled.*
 
-####PeriodicTask.stop()
+#### PeriodicTask.stop()
 *Cancel the scheduled executions, if necessary.*
+
+#### PeriodicTask.delay([newDelay])
+*Get or set the delay between to task executions*
+
+Returns a number: the delay in milliseconds.
+ * **newDelay**  (number|object) [optionnal]: the minimum delay between two task executions - if an object is given, its valueOf() method must return a number (evaluated as milliseconds).
+
+
 
 # Sample usage
 Try running the following code after including/requiring PeriodicTask:

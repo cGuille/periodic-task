@@ -26,14 +26,15 @@
         };
         this._delay = delay.valueOf();
         this._timer = null;
+        this._mustSchedule = false;
     }
 
     /**
      * Run the task immediately, and then schedule it to be executed periodically.
      */
     PeriodicTask.prototype.run = function () {
-        this.runOnce();
-        schedule(this);
+        this._mustSchedule = true;
+        runTask(this);
     };
 
     /**
@@ -44,13 +45,14 @@
      */
     PeriodicTask.prototype.runOnce = function () {
         this.stop();
-        this._task();
+        runTask(this);
     };
 
     /**
      * Cancel the scheduled executions, if necessary.
      */
     PeriodicTask.prototype.stop = function () {
+        this._mustSchedule = false;
         if (this._timer !== null) {
             clearTimeout(this._timer);
             this._timer = null;
@@ -78,10 +80,19 @@
      * @param  {PeriodicTask} task the task to be scheduled
      */
     function schedule(task) {
-        task._timer = setTimeout(function () {
-            task._task();
+        task._timer = setTimeout(function () { runTask(task); }, task._delay);
+    }
+
+    /**
+     * PRIVATE INTERNAL ROUTINE
+     *
+     * @param  {PeriodicTask}
+     */
+    function runTask(task) {
+        task._task();
+        if (task._mustSchedule) {
             schedule(task);
-        }, task._delay);
+        }
     }
 
     // Exposing the module:

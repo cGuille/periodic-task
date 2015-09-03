@@ -1,3 +1,5 @@
+:warning: **You may want to use [`async-polling`](https://github.com/cGuille/async-polling#readme) instead of this project.**
+
 periodic-task
 =============
 

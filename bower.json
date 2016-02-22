@@ -1,7 +1,7 @@
 {
   "name": "periodic-task",
   "main": "periodic-task.js",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "homepage": "https://github.com/cGuille/periodic-task",
   "authors": [
     "Guillaume Ch. <cguille.dev@gmail.com>"
